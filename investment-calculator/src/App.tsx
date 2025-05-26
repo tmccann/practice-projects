@@ -1,9 +1,5 @@
 const App = () => {
-  return (
-    <main>
-      <h1>vite basic template</h1>
-    </main>
-  );
+  return <main></main>;
 };
 
 export default App;
