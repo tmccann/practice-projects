@@ -21,7 +21,8 @@ describe("form component", () => {
   });
   test("render 4 inputs", () => {
     // // Check that all input fields exist
-    const inputs = screen.getAllByRole("textbox");
+    // All inputs use type="number", so test roles are 'spinbutton' instead of 'textbox'
+    const inputs = screen.getAllByRole("spinbutton");
     expect(inputs).toHaveLength(4);
   });
   test("each input should have correct label", () => {
@@ -38,12 +39,12 @@ describe("form component", () => {
       getInputs();
     const user = userEvent.setup();
     await user.type(initialInvestment, "123");
-    expect(initialInvestment).toHaveValue("123");
+    expect(initialInvestment).toHaveValue(123);
     await user.type(annualInvestment, "234");
-    expect(annualInvestment).toHaveValue("234");
+    expect(annualInvestment).toHaveValue(234);
     await user.type(expectedReturns, "5.5");
-    expect(expectedReturns).toHaveValue("5.5");
+    expect(expectedReturns).toHaveValue(5.5);
     await user.type(duration, "10");
-    expect(duration).toHaveValue("10");
+    expect(duration).toHaveValue(10);
   });
 });
