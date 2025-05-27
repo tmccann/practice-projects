@@ -48,3 +48,17 @@ describe("form component", () => {
     expect(duration).toHaveValue(10);
   });
 });
+describe("form component state", () => {
+  beforeEach(() => {
+    render(<InvestmentForm />);
+  });
+  // intialstate values :intialInvestment: 100, annualInvestment: 10, expectedReturns: 5,duration: 10,
+  test("Inputs render with intial state values", () => {
+    const { initialInvestment, annualInvestment, expectedReturns, duration } =
+      getInputs();
+    expect(initialInvestment).toHaveValue(100);
+    expect(annualInvestment).toHaveValue(10);
+    expect(expectedReturns).toHaveValue(5);
+    expect(duration).toHaveValue(10);
+  });
+});
