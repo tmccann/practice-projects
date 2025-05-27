@@ -33,23 +33,6 @@ describe("form component", () => {
     expect(expectedReturns).toBeInTheDocument();
     expect(duration).toBeInTheDocument();
   });
-  // _________________________
-  // || move to state tests ||
-  // _________________________
-  // test("inputs should accept numbers", async () => {
-  //   // simulate typing in input
-  //   const { initialInvestment, annualInvestment, expectedReturns, duration } =
-  //     getInputs();
-  //   const user = userEvent.setup();
-  //   await user.type(initialInvestment, "123");
-  //   expect(initialInvestment).toHaveValue(123);
-  //   await user.type(annualInvestment, "234");
-  //   expect(annualInvestment).toHaveValue(234);
-  //   await user.type(expectedReturns, "5.5");
-  //   expect(expectedReturns).toHaveValue(5.5);
-  //   await user.type(duration, "10");
-  //   expect(duration).toHaveValue(10);
-  // });
 });
 describe("InvestmentForm state handling", () => {
   beforeEach(() => {
