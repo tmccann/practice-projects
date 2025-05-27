@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 export type FormValueProps = {
-  intialInvestment: number;
+  initialInvestment: number;
   annualInvestment: number;
   expectedReturns: number;
   duration: number;
 };
 const initialFormValues: FormValueProps = {
-  intialInvestment: 100,
+  initialInvestment: 100,
   annualInvestment: 10,
   expectedReturns: 5,
   duration: 10,
@@ -15,6 +15,15 @@ const initialFormValues: FormValueProps = {
 
 const InvestmentForm = () => {
   const [fromValues, setFormValues] = useState(initialFormValues);
+
+  const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    const valueAsNumber = Number(value);
+    setFormValues((prev) => ({
+      ...prev,
+      [id]: valueAsNumber,
+    }));
+  };
   return (
     <section id="user-input">
       <form aria-label="Investment form">
@@ -25,7 +34,8 @@ const InvestmentForm = () => {
               id="initialInvestment"
               type="number"
               required
-              value={fromValues.intialInvestment}
+              value={fromValues.initialInvestment}
+              onChange={(e) => onHandleChange(e)}
             />
           </p>
           <p>
@@ -35,6 +45,7 @@ const InvestmentForm = () => {
               type="number"
               required
               value={fromValues.annualInvestment}
+              onChange={(e) => onHandleChange(e)}
             />
           </p>
         </div>
@@ -46,6 +57,7 @@ const InvestmentForm = () => {
               type="number"
               required
               value={fromValues.expectedReturns}
+              onChange={(e) => onHandleChange(e)}
             />
           </p>
           <p>
@@ -55,6 +67,7 @@ const InvestmentForm = () => {
               type="number"
               required
               value={fromValues.duration}
+              onChange={(e) => onHandleChange(e)}
             />
           </p>
         </div>
