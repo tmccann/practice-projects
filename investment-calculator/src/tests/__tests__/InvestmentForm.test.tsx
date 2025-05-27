@@ -64,4 +64,21 @@ describe("InvestmentForm state handling", () => {
     expect(expectedReturns).toHaveValue(5);
     expect(duration).toHaveValue(10);
   });
+  test("form state updates on input change", async () => {
+    const user = userEvent.setup();
+    const { initialInvestment, annualInvestment, expectedReturns, duration } =
+      getInputs();
+    await user.clear(initialInvestment);
+    await user.type(initialInvestment, "90");
+    await user.clear(annualInvestment);
+    await user.type(annualInvestment, "15");
+    await user.clear(expectedReturns);
+    await user.type(expectedReturns, "4");
+    await user.clear(duration);
+    await user.type(duration, "5");
+    expect(initialInvestment).toHaveValue(90);
+    expect(annualInvestment).toHaveValue(15);
+    expect(expectedReturns).toHaveValue(4);
+    expect(duration).toHaveValue(5);
+  });
 });
