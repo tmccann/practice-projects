@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import InvestmentForm from "../../components/InvestmentForm";
 import userEvent from "@testing-library/user-event";
+import exp from "constants";
 
 const getInputs = () => ({
   initialInvestment: screen.getByLabelText("Initial Investment"),
@@ -63,5 +64,22 @@ describe("InvestmentForm state handling", () => {
     expect(annualInvestment).toHaveValue(10);
     expect(expectedReturns).toHaveValue(5);
     expect(duration).toHaveValue(10);
+  });
+  test("form state updates on input change", async () => {
+    const user = userEvent.setup();
+    const { initialInvestment, annualInvestment, expectedReturns, duration } =
+      getInputs();
+    await user.clear(initialInvestment);
+    await user.type(initialInvestment, "90");
+    await user.clear(annualInvestment);
+    await user.type(annualInvestment, "15");
+    await user.clear(expectedReturns);
+    await user.type(expectedReturns, "4");
+    await user.clear(duration);
+    await user.type(duration, "5");
+    expect(initialInvestment).toHaveValue(90);
+    expect(annualInvestment).toHaveValue(15);
+    expect(expectedReturns).toHaveValue(4);
+    expect(duration).toHaveValue(5);
   });
 });
