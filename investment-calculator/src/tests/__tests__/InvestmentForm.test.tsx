@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import InvestmentForm from "../../components/InvestmentForm";
 import userEvent from "@testing-library/user-event";
 import InvestmentFormWrapper from "./testWrappers/InvestmentFormWrapper";
 
