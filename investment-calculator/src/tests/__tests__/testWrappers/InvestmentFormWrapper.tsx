@@ -1,15 +1,8 @@
 import { useState } from "react";
-import type { FormValueProps } from "./components/InvestmentForm";
-import InvestmentForm from "./components/InvestmentForm";
+import { initialFormValues } from "../../../App";
+import InvestmentForm from "../../../components/InvestmentForm";
 
-export const initialFormValues: FormValueProps = {
-  initialInvestment: 100,
-  annualInvestment: 10,
-  expectedReturns: 5,
-  duration: 10,
-};
-
-const App = () => {
+const InvestmentFormWrapper = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,10 +16,10 @@ const App = () => {
     }));
   };
   return (
-    <main>
+    <>
       <InvestmentForm onHandleChange={onHandleChange} formValues={formValues} />
-    </main>
+    </>
   );
 };
 
-export default App;
+export default InvestmentFormWrapper;
