@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import InvestmentFormWrapper from "./testWrappers/InvestmentFormWrapper";
+import InvestmentFormWrapper from "./testWrappers/InvestmentFo
 
 const getInputs = () => ({
   initialInvestment: screen.getByLabelText("Initial Investment"),
