@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import InvestmentForm from "../../components/InvestmentForm";
 import userEvent from "@testing-library/user-event";
-import exp from "constants";
+import InvestmentFormWrapper from "./testWrappers/InvestmentFo
 
 const getInputs = () => ({
   initialInvestment: screen.getByLabelText("Initial Investment"),
@@ -12,7 +11,7 @@ const getInputs = () => ({
 
 describe("form component", () => {
   beforeEach(() => {
-    render(<InvestmentForm />);
+    render(<InvestmentFormWrapper />);
   });
 
   test("form to be in document", () => {
@@ -37,7 +36,7 @@ describe("form component", () => {
 });
 describe("InvestmentForm state handling", () => {
   beforeEach(() => {
-    render(<InvestmentForm />);
+    render(<InvestmentFormWrapper />);
   });
   // intialstate values :intialInvestment: 100, annualInvestment: 10, expectedReturns: 5,duration: 10,
   test("Inputs render with intial state values", () => {

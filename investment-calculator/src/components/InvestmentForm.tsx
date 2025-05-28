@@ -1,31 +1,21 @@
-import { useState } from "react";
-
 export type FormValueProps = {
   initialInvestment: number;
   annualInvestment: number;
   expectedReturns: number;
   duration: number;
 };
-const initialFormValues: FormValueProps = {
-  initialInvestment: 100,
-  annualInvestment: 10,
-  expectedReturns: 5,
-  duration: 10,
+
+type InvestmentFormProps = {
+  formValues: FormValueProps;
+  onHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+const InvestmentForm = ({
+  formValues,
+  onHandleChange,
+}: InvestmentFormProps) => {
+  const { initialInvestment, annualInvestment, expectedReturns, duration } =
+    formValues;
 
-const InvestmentForm = () => {
-  const [fromValues, setFormValues] = useState(initialFormValues);
-
-  const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    const valueAsNumber = Number(value);
-    // only used as fail safe this should never work as input min value is 0 and '-' key not accepted
-    const newValue = valueAsNumber < 0 ? 0 : valueAsNumber;
-    setFormValues((prev) => ({
-      ...prev,
-      [id]: newValue,
-    }));
-  };
   return (
     <section id="user-input">
       <form aria-label="Investment form">
@@ -35,8 +25,9 @@ const InvestmentForm = () => {
             <input
               id="initialInvestment"
               type="number"
+              min={0}
               required
-              value={fromValues.initialInvestment}
+              value={initialInvestment}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -45,8 +36,9 @@ const InvestmentForm = () => {
             <input
               id="annualInvestment"
               type="number"
+              min={0}
               required
-              value={fromValues.annualInvestment}
+              value={annualInvestment}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -57,8 +49,9 @@ const InvestmentForm = () => {
             <input
               id="expectedReturns"
               type="number"
+              min={0}
               required
-              value={fromValues.expectedReturns}
+              value={expectedReturns}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -67,8 +60,9 @@ const InvestmentForm = () => {
             <input
               id="duration"
               type="number"
+              min={0}
               required
-              value={fromValues.duration}
+              value={duration}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
