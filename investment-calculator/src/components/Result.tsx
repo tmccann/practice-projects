@@ -1,4 +1,15 @@
-const Result = () => {
+export type ResultsItem = {
+  year: number;
+  investmentValue: number;
+  interestYear: number;
+  totalInterest: number;
+  investedCapital: number;
+};
+export type Results = ResultsItem[];
+export type TableData = {
+  tableData: Results;
+};
+const Result = (tableData: TableData) => {
   return (
     <table id="result">
       <thead>

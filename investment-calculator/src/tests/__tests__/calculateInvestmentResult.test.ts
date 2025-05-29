@@ -1,4 +1,5 @@
 import { calculateInvestmentResults } from "../../util/investment";
+import type { Results } from "../../components/Result";
 /*
 ========================================
   Expected Behavior Breakdown (2 Years)
@@ -30,15 +31,7 @@ const mockData = {
   expectedReturns: 10,
   duration: 2,
 };
-type ResultsItem = {
-  year: number;
-  investmentValue: number;
-  interestYear: number;
-  totalInterest: number;
-  investedCapital: number;
-};
 
-type Results = ResultsItem[];
 describe("calculate investment result", () => {
   let result: Results;
   beforeEach(() => {

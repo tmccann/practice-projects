@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { FormValueProps } from "./components/InvestmentForm";
 import InvestmentForm from "./components/InvestmentForm";
+import { calculateInvestmentResults } from "./util/investment";
+import Result from "./components/Result";
 
 export const initialFormValues: FormValueProps = {
   initialInvestment: 100,
@@ -25,6 +27,7 @@ const App = () => {
   return (
     <main>
       <InvestmentForm onHandleChange={onHandleChange} formValues={formValues} />
+      <Result tableData={calculateInvestmentResults(formValues)} />
     </main>
   );
 };
