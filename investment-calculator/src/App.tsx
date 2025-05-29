@@ -24,10 +24,12 @@ const App = () => {
       [id]: newValue,
     }));
   };
+  const rawData = calculateInvestmentResults(formValues);
+  console.log(typeof rawData);
   return (
     <main>
       <InvestmentForm onHandleChange={onHandleChange} formValues={formValues} />
-      <Result tableData={calculateInvestmentResults(formValues)} />
+      <Result tableData={rawData} />
     </main>
   );
 };

@@ -17,7 +17,6 @@ const mockResult = [
     investedCapital: 1200,
   },
 ];
-
 const getTableContent = () => ({
   rows: screen.getAllByRole("row").slice(1), // remove header
 });
@@ -76,17 +75,18 @@ describe("table content", () => {
       });
     });
     test("investment value column has correct formatting and value", () => {
-      const investmentValueCell = screen.getByTestId("investmentValue-1");
+      const investmentValueCell = screen.getByTestId("investmentValue-year-1");
       expect(investmentValueCell).toHaveTextContent("£1,200");
       const interestYear = screen.getByTestId("interestYear-year-1");
       expect(interestYear).toHaveTextContent("£100");
-      const totalInterest = screen.getByTestId("totalInterest-1");
+      const totalInterest = screen.getByTestId("totalInterest-year-1");
       expect(totalInterest).toHaveTextContent("£100");
-      const investedCapital = screen.getByTestId("investedCapital-1");
+      const investedCapital = screen.getByTestId("investedCapital-year-1");
       expect(investedCapital).toHaveTextContent("£1,100");
     });
     test("final value matches expected value", () => {
-      const lastRow = mockResult.length - 1;
+      const lastRow = `year-${mockResult.length}`;
+      console.log(lastRow);
       const investmentValueCell = screen.getByTestId(
         `investmentValue-${lastRow}`
       );
