@@ -3,6 +3,7 @@ import type { FormValueProps } from "./components/InvestmentForm";
 import InvestmentForm from "./components/InvestmentForm";
 import { calculateInvestmentResults } from "./util/investment";
 import Result from "./components/Result";
+import Header from "./components/Header";
 
 export const initialFormValues: FormValueProps = {
   initialInvestment: 100,
@@ -28,6 +29,7 @@ const App = () => {
   console.log(typeof rawData);
   return (
     <main>
+      <Header />
       <InvestmentForm onHandleChange={onHandleChange} formValues={formValues} />
       <Result tableData={rawData} />
     </main>
