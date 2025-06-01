@@ -26,7 +26,6 @@ const App = () => {
     }));
   };
   const rawData = calculateInvestmentResults(formValues);
-  console.log(typeof rawData);
   return (
     <main>
       <Header />
