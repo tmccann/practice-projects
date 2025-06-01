@@ -47,32 +47,50 @@ const getElements = () => {
     },
   };
 };
-describe("app flow", () => {
-  render(<App />);
-  describe("header component", () => {
-    test("header, title and logo have been rendered", () => {});
-  });
-  describe("InvestmentForm component", () => {
-    describe("form and inputs have been rendered", () => {
-      test("renders form with 4 labeled number inputs", () => {});
-    });
-  });
-  describe("investment Form state handling", () => {
-    test("Inputs render with intial state values", () => {
-      // intialstate values are initialInvestment: 100,annualInvestment: 10,expectedReturns: 5,duration: 10,
-    });
-    test("inputs display value updates to match state", () => {});
-  });
-  describe("results Component", () => {
-    describe("basic table structure renders", () => {
-      test("table Renders with 5 columns", () => {});
-      test("table rows are equal to duration value", () => {});
-      test("each cell has a value", () => {});
-    });
-    describe("table contant and values", () => {
-      test("table year displays value for 1 to results.length", () => {});
-      test("investment value column has correct formatting and value", () => {});
-      test("final value matches expected value", () => {});
-    });
+
+describe("App flow", () => {
+  test("renders everything and handles input + table output", () => {
+    render(<App />);
+    const { header, form, results } = getElements();
+    // ---------------------
+    // Header component tests
+    // ---------------------
+    // Check that the header, title, and logo are rendered
+
+    // ---------------------
+    // Form structure tests
+    // ---------------------
+    // Form is present
+    // There are 4 inputs with role="spinbutton"
+    // Each input has correct label
+    // Table is rendered below the form
+
+    // ---------------------
+    // Initial input state test
+    // ---------------------
+    // Each input starts with expected default value:
+    //   - initialInvestment: 100
+    //   - annualInvestment: 10
+    //   - expectedReturns: 5
+    //   - duration: 10
+
+    // ---------------------
+    // Simulate input changes
+    // ---------------------
+    // Clear and type new value into initialInvestment (e.g. 200)
+    // Clear and type new value into duration (e.g. 5)
+
+    // ---------------------
+    // Result table updates
+    // ---------------------
+    // Table rows match new duration (e.g. 5 rows)
+    // Each cell in every row has a value (not empty)
+
+    // ---------------------
+    // Result content formatting (optional)
+    // ---------------------
+    // "Year" column starts at 1 and increments
+    // "Investment Value", "Total Investment", "Returns", "Total Value" columns contain properly formatted currency
+    // Final "Total Value" cell matches the expected result based on input
   });
 });
