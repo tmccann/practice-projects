@@ -28,7 +28,7 @@ const InvestmentForm = ({
               min={0}
               max={100000000000}
               required
-              value={initialInvestment}
+              value={String(initialInvestment)}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -39,7 +39,7 @@ const InvestmentForm = ({
               type="number"
               min={0}
               required
-              value={annualInvestment}
+              value={String(annualInvestment)}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -52,7 +52,7 @@ const InvestmentForm = ({
               type="number"
               min={0}
               required
-              value={expectedReturns}
+              value={String(expectedReturns)}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
@@ -63,7 +63,7 @@ const InvestmentForm = ({
               type="number"
               min={0}
               required
-              value={duration}
+              value={String(duration)}
               onChange={(e) => onHandleChange(e)}
             />
           </p>
