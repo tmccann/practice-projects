@@ -26,6 +26,7 @@ const InvestmentForm = ({
               id="initialInvestment"
               type="number"
               min={0}
+              max={100000000000}
               required
               value={initialInvestment}
               onChange={(e) => onHandleChange(e)}
