@@ -62,6 +62,7 @@ const InvestmentForm = ({
               id="duration"
               type="number"
               min={0}
+              max={100}
               required
               value={String(duration)}
               onChange={(e) => onHandleChange(e)}
