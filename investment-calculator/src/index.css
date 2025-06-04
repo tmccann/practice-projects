@@ -43,7 +43,9 @@ header h1 {
   justify-content: space-evenly;
   gap: 1.5rem;
 }
-
+.input-group p {
+  width: 100%;
+}
 #user-input label {
   display: block;
   margin-bottom: 0.25rem;
