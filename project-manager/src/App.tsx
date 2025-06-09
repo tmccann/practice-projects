@@ -1,3 +1,4 @@
+import NoProject from "./components/NoProject";
 import SideBar from "./components/SideBar";
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
           - Show list of tasks for selected project otherwise */}
       <div className="flex h-svh pt-6">
         <SideBar />
+        <NoProject />
       </div>
     </>
   );

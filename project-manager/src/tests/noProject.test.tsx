@@ -7,12 +7,12 @@ export const getSideBarElements = () => {
     noProjectImage: screen.getByAltText("clipboard and pen"),
     noProjectH2: screen.getByRole("heading", {
       level: 2,
-      name: "your projects",
+      name: "No project selected",
     }),
     noProjectInst: screen.getByText(
       "Select a project or get started with a new one"
     ),
-    noProjectButton: screen.getByRole("button", { name: "+ Add Project" }),
+    noProjectButton: screen.getByRole("button", { name: "Create new project" }),
   };
 };
 
