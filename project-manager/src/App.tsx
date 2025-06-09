@@ -1,3 +1,5 @@
+import SideBar from "./components/SideBar";
+
 export default function App() {
   return (
     <>
@@ -8,6 +10,9 @@ export default function App() {
       {/* Main content:
           - Show "Add Project" form when no project is selected
           - Show list of tasks for selected project otherwise */}
+      <div className="flex h-svh pt-6">
+        <SideBar />
+      </div>
     </>
   );
 }
