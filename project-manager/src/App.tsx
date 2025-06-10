@@ -1,4 +1,4 @@
-import NewProject from "./components/.tsx";
+import NewProject from "./components/NewProject";
 import NoProject from "./components/NoProject";
 import SideBar from "./components/SideBar";
 
