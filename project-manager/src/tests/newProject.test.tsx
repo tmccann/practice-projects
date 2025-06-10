@@ -4,8 +4,8 @@ import NewProject from "../components/NewProject";
 const getNewProjectElement = () => {
   return {
     cancelButton: screen.getByRole("button", { name: "Cancel" }),
-    saveButton: screen.getByRole("button", { name: "save" }),
-    titleInput: screen.getByTestId("titleInput"),
+    saveButton: screen.getByRole("button", { name: "Save" }),
+    titleInput: screen.getByTestId("title"),
     descriptionInput: screen.getByTestId("description"),
     dateInput: screen.getByTestId("date"),
   };
