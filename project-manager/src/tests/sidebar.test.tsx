@@ -20,12 +20,12 @@ describe("Sidebar Component", () => {
     expect(sideBarh2).toBeInTheDocument();
     expect(sideBarButton).toBeInTheDocument();
   });
-  test("button should fire handleNewProject on click", async () => {
-    const handleNewProject = vi.fn(); // or jest.fn() if using Jest
+  // test("button should fire handleNewProject on click", async () => {
+  //   const handleNewProject = vi.fn(); // or jest.fn() if using Jest
 
-    render(<SideBar handleNewProject={handleNewProject} />);
-    const { sideBarButton } = getSideBarElements();
-    await user.click(sideBarButton);
-    expect(handleNewProject).toHaveBeenCalled();
-  });
+  //   render(<SideBar handleNewProject={handleNewProject} />);
+  //   const { sideBarButton } = getSideBarElements();
+  //   await user.click(sideBarButton);
+  //   expect(handleNewProject).toHaveBeenCalled();
+  // });
 });

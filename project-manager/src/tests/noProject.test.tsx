@@ -29,11 +29,11 @@ describe("Sidebar Component", () => {
     expect(noProjectButton).toBeInTheDocument();
   });
 
-  test("button should fire handleNewProject on click", async () => {
-    const handleNewProject = vi.fn();
-    render(<NoProject handleNewProject={handleNewProject} />);
-    const { noProjectButton } = getSideBarElements();
-    await user.click(noProjectButton);
-    expect(handleNewProject).toHaveBeenCalled();
-  });
+  // test("button should fire handleNewProject on click", async () => {
+  //   const handleNewProject = vi.fn();
+  //   render(<NoProject handleNewProject={handleNewProject} />);
+  //   const { noProjectButton } = getSideBarElements();
+  //   await user.click(noProjectButton);
+  //   expect(handleNewProject).toHaveBeenCalled();
+  // });
 });

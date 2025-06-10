@@ -1,3 +1,4 @@
+import NewProject from "./components/.tsx";
 import NoProject from "./components/NoProject";
 import SideBar from "./components/SideBar";
 
@@ -6,14 +7,14 @@ export default function App() {
     <>
       {/* Layout: container split into 30% sidebar, 70% main content */}
 
-      {/* Sidebar: shows list of projects to select from */}
+      <div className="flex h-svh pt-6">
+        {/* Sidebar: shows list of projects to select from */}
+        <SideBar />
 
-      {/* Main content:
+        {/* Main content:
           - Show "Add Project" form when no project is selected
           - Show list of tasks for selected project otherwise */}
-      <div className="flex h-svh pt-6">
-        <SideBar />
-        <NoProject />
+        <NewProject />
       </div>
     </>
   );
