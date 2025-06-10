@@ -1,6 +1,19 @@
+import { useRef } from "react";
+import { Input } from "./Inputs/Input";
+
 const NewProject = () => {
+  const title = useRef<HTMLInputElement>(null);
+  const date = useRef<HTMLInputElement>(null);
+  const description = useRef<HTMLTextAreaElement>(null);
   // still to work on logic
-  const handleSubmit = () => {};
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(
+      title.current?.value,
+      description.current?.value,
+      date.current?.value
+    );
+  };
   return (
     <div className=" p-16 w-6/10">
       <form onSubmit={handleSubmit}>
@@ -13,34 +26,14 @@ const NewProject = () => {
             Save
           </button>
         </div>
-        <p className="flex flex-col gap-1 my-4">
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            className=" border-b-2 border-stone-400 bg-stone-200 rounded-sm p-1 focus:outline-none focus:border-stone-700"
-            type="text"
-            data-testid="title"
-          />
-        </p>
-        <p className="flex flex-col gap-1 my-4">
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            className=" border-b-2 border-stone-400 bg-stone-200 rounded-sm focus:outline-none focus:border-stone-700"
-            data-testid="description"
-          />
-        </p>
-        <p className="flex flex-col gap-1 my-4">
-          <label className="" htmlFor="date">
-            Date
-          </label>
-          <input
-            id="date"
-            className=" border-b-2 border-stone-400 bg-stone-200 rounded-sm focus:outline-none focus:border-stone-700"
-            type="date"
-            data-testid="date"
-          />
-        </p>
+        <Input label="Title" id="title" type="text" ref={title} />
+        <Input
+          label="Description"
+          id="description"
+          ref={description}
+          textarea
+        />
+        <Input label="Date" id="date" type="date" ref={date} />
       </form>
     </div>
   );

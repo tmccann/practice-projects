@@ -1,4 +1,5 @@
 import logo from "../assets/no-projects.png";
+import { AddProjectButton } from "./Inputs/AddProjectButton";
 
 const NoProject = () => {
   return (
@@ -14,9 +15,7 @@ const NoProject = () => {
       <p className="font-bold text-stone-500 py-4">
         Select a project or get started with a new one
       </p>
-      <button className="bg-stone-700 text-stone-400  hover:bg-stone-600  hover:text-stone-100 py-2 px-4 rounded-md ">
-        Create new project
-      </button>
+      <AddProjectButton>Create new project</AddProjectButton>
     </div>
   );
 };
