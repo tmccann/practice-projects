@@ -1,4 +1,4 @@
-import { AddProjectButton } from "./Inputs/AddProjectButton";
+import { AddProjectButton } from "./InputsAndButtons/AddProjectButton";
 
 const SideBar = () => {
   return (

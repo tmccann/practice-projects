@@ -1,5 +1,5 @@
 import logo from "../assets/no-projects.png";
-import { AddProjectButton } from "./Inputs/AddProjectButton";
+import { AddProjectButton } from "./InputsAndButtons/AddProjectButton";
 
 const NoProject = () => {
   return (

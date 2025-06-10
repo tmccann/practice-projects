@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Input } from "./Inputs/Input";
+import { Input } from "./InputsAndButtons/Input";
 
 const NewProject = () => {
   const title = useRef<HTMLInputElement>(null);
