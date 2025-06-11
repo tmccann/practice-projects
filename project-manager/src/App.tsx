@@ -1,5 +1,6 @@
 import NewProject from "./components/NewProject";
 import NoProject from "./components/NoProject";
+import SelectedProject from "./components/SelectedProject";
 import SideBar from "./components/SideBar";
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
         {/* Main content:
           - Show "Add Project" form when no project is selected
           - Show list of tasks for selected project otherwise */}
-        <NewProject />
+        <SelectedProject />
       </div>
     </>
   );

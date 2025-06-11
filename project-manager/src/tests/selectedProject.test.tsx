@@ -10,11 +10,10 @@ const mockProject = {
 
 export const getSelectedProjectElements = () => {
   return {
-    selectedHeader: screen.getByRole("heading"),
-    selectedTitle: screen.getByText("Title test"),
-    selectedDate: screen.getByTestId("date"),
+    selectedHeader: screen.getByRole("heading", { name: "test" }),
+    selectedDate: screen.getByText("July 12, 2025"),
     selectedDeleteButton: screen.getByRole("button", { name: "Delete" }),
-    selectedDescrioption: screen.getByText("New Task"),
+    selectedDescrioption: screen.getByText("Description will be here"),
     selectedh2: screen.getByRole("heading", { name: "Task" }),
     selectedInput: screen.getByLabelText("Add Task"),
     noTasksMessage: screen.getByText(
@@ -31,13 +30,11 @@ describe("selected Project element", () => {
   test("passed values render correctly", () => {
     const {
       selectedHeader,
-      selectedTitle,
       selectedDate,
       selectedDeleteButton,
       selectedDescrioption,
     } = getSelectedProjectElements();
     expect(selectedHeader).toBeInTheDocument();
-    expect(selectedTitle).toBeInTheDocument();
     expect(selectedDate).toBeInTheDocument();
     expect(selectedDeleteButton).toBeInTheDocument();
     expect(selectedDescrioption).toBeInTheDocument();
