@@ -15,7 +15,7 @@ const NewProject = () => {
     );
   };
   return (
-    <div className=" p-16 w-6/10">
+    <div className=" p-16 w-[60%]">
       <form onSubmit={handleSubmit}>
         <div className="flex items-center justify-end gap-4">
           <button className="">Cancel</button>
