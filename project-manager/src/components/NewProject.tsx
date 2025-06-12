@@ -1,7 +1,10 @@
 import { useRef } from "react";
 import { Input } from "./InputsAndButtons/Input";
 
-const NewProject = () => {
+type NewProjectProps = {
+  cancel: () => void;
+};
+const NewProject = ({ cancel }: NewProjectProps) => {
   const title = useRef<HTMLInputElement>(null);
   const date = useRef<HTMLInputElement>(null);
   const description = useRef<HTMLTextAreaElement>(null);
@@ -18,7 +21,7 @@ const NewProject = () => {
     <div className=" p-16 w-[60%]">
       <form onSubmit={handleSubmit}>
         <div className="flex items-center justify-end gap-4">
-          <button className="">Cancel</button>
+          <button onClick={cancel}>Cancel</button>
           <button
             type="submit"
             className="bg-stone-800 text-stone-50 py-2 px-4 rounded-md"
