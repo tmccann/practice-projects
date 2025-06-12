@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import NewProject from "../components/NewProject";
 
-const getNewProjectElement = () => {
+export const getNewProjectElement = () => {
   return {
     cancelButton: screen.getByRole("button", { name: "Cancel" }),
     saveButton: screen.getByRole("button", { name: "Save" }),
