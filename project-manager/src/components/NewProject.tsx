@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Input } from "./InputsAndButtons/Input";
+import { validateDateInput, validateTextInput } from "../Utils/dataValidation";
 
 export type DataProps = {
   title: string;
@@ -21,25 +22,6 @@ const NewProject = ({ cancel, handleSubmit }: NewProjectProps) => {
   const title = useRef<HTMLInputElement>(null);
   const date = useRef<HTMLInputElement>(null);
   const description = useRef<HTMLTextAreaElement>(null);
-
-  // validate data
-  const validateTextInput = (
-    ref: React.RefObject<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const element = ref.current;
-    if (!element) return null;
-    const val = element.value;
-    return val.length >= 4 ? val : null;
-  };
-  const validateDateInput = (ref: React.RefObject<HTMLInputElement>) => {
-    const dateElement = ref.current;
-    if (!dateElement) return null;
-    const val = dateElement.value;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const enteredDate = new Date(val);
-    return enteredDate >= today ? val : null;
-  };
 
   // handle errors
   const handleFormValidation = (e: React.FormEvent) => {
