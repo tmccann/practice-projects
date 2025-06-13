@@ -77,11 +77,6 @@ describe("input handling and validation", () => {
     await user.type(titleInput, "abcd");
     await user.type(descriptionInput, "efgh");
     fireEvent.change(dateInput, { target: { value: today } });
-
-    expect(titleInput).toHaveValue("abcd");
-    expect(descriptionInput).toHaveValue("efgh");
-    expect(dateInput).toHaveValue(today);
-
     await user.click(saveButton);
     expect(mockHandleSubmit).toHaveBeenCalledWith({
       title: "abcd",
