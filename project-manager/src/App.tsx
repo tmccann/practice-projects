@@ -4,6 +4,13 @@ import NoProject from "./components/NoProject";
 import SelectedProject from "./components/SelectedProject";
 import SideBar from "./components/SideBar";
 
+export type ProjectProps = {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  tasks: string[];
+};
 const projects = [
   {
     id: "1",
@@ -39,7 +46,7 @@ export default function App() {
 
       <div className="flex h-svh pt-6">
         {/* Sidebar: shows list of projects to select from */}
-        <SideBar onAddProject={onAddProject} />
+        <SideBar onAddProject={onAddProject} projectsList={projects} />
 
         {/* Main content
           no project compontent on initial render */}
