@@ -14,10 +14,24 @@ export type ProjectProps = {
 const projects = [
   {
     id: "1",
-    title: "new Project",
+    title: "New project 1",
     description: "Description will be here",
     date: "12/03/25",
     tasks: ["task 1"],
+  },
+  {
+    id: "2",
+    title: "New project 2",
+    description: " Description will be here",
+    date: "12/03/25",
+    tasks: ["task "],
+  },
+  {
+    id: "3",
+    title: "New project 3",
+    description: " Description will be here",
+    date: "12/03/25",
+    tasks: ["task "],
   },
 ];
 
@@ -33,8 +47,8 @@ export default function App() {
     setMode("none");
   };
 
-  const onSelectProject = () => {
-    setMode({ id: "1" });
+  const onSelectProject = (id: string) => {
+    setMode({ id: id });
   };
 
   const handleSubmit = (data: DataProps) => {
@@ -46,7 +60,11 @@ export default function App() {
 
       <div className="flex h-svh pt-6">
         {/* Sidebar: shows list of projects to select from */}
-        <SideBar onAddProject={onAddProject} projectsList={projects} />
+        <SideBar
+          onAddProject={onAddProject}
+          onSelectProject={onSelectProject}
+          projectsList={projects}
+        />
 
         {/* Main content
           no project compontent on initial render */}
