@@ -39,7 +39,7 @@ describe("New project component", () => {
     expect(descriptionInput).toHaveValue("this is a test");
   });
 });
-// ********** all test below this line currently fail *************
+
 describe("input handling and validation", () => {
   beforeEach(() => {
     render(<NewProject cancel={mockCancel} handleSubmit={mockHandleSubmit} />);
