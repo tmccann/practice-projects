@@ -39,12 +39,12 @@ describe("New project component", () => {
     expect(descriptionInput).toHaveValue("this is a test");
   });
 });
-// ********** all test below this line currently fail *************
+
 describe("input handling and validation", () => {
   beforeEach(() => {
     render(<NewProject cancel={mockCancel} handleSubmit={mockHandleSubmit} />);
   });
-  test("input throw error if values blank", async () => {
+  test("shows validation errors when all inputs are blank", async () => {
     const { saveButton } = getNewProjectElement();
     await user.click(saveButton);
     expect(screen.getByText("title is to short")).toBeInTheDocument();
@@ -53,21 +53,23 @@ describe("input handling and validation", () => {
       screen.getByText("The date must be today or later.")
     ).toBeInTheDocument();
   });
-  test("inputs throws error if data invalid", async () => {
-    const { titleInput, descriptionInput, dateInput } = getNewProjectElement();
-    // title input less than 4 char
-    await user.type(titleInput, "abc");
-    // description less than 4 char
-    await user.type(descriptionInput, "efg");
-    // date in the past
-    fireEvent.change(dateInput, { target: { value: "2025-06-10" } });
+  test("shows validation errors for invalid inputs", async () => {
+    const { titleInput, descriptionInput, dateInput, saveButton } =
+      getNewProjectElement();
+
+    await user.type(titleInput, "abc"); // to short
+    await user.type(descriptionInput, "efg"); // to short
+    fireEvent.change(dateInput, { target: { value: "2025-06-12" } }); // past date
+
+    await user.click(saveButton);
     expect(screen.getByText("title is to short")).toBeInTheDocument();
     expect(screen.getByText("description is to short")).toBeInTheDocument();
     expect(
       screen.getByText("The date must be today or later.")
     ).toBeInTheDocument();
   });
-  test("valid values past to handlesumbit function", async () => {
+
+  test("valid input triggers handleSubmit with correct data", async () => {
     const { titleInput, descriptionInput, dateInput, saveButton } =
       getNewProjectElement();
     const today = new Date().toISOString().split("T")[0];
@@ -76,10 +78,16 @@ describe("input handling and validation", () => {
     await user.type(descriptionInput, "efgh");
     fireEvent.change(dateInput, { target: { value: today } });
     await user.click(saveButton);
-    expect(mockHandleSubmit).toBeCalledWith({
+    expect(mockHandleSubmit).toHaveBeenCalledWith({
       title: "abcd",
       description: "efgh",
       date: today,
     });
+  });
+
+  test("cancel buttong tirggers cancel function", async () => {
+    const { cancelButton } = getNewProjectElement();
+    await user.click(cancelButton);
+    expect(mockCancel).toHaveBeenCalled();
   });
 });
